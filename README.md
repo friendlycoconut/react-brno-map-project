@@ -1,5 +1,7 @@
 # PV247 Modern Development of User Interfaces
-![example workflow](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![npm_version](https://img.shields.io/badge/npm-9.5.0-blue)
+![firebase_version](https://img.shields.io/badge/firebase-9.19.1-orange)
+
 # Project: React-Brno-tourist-app
 # [Data source link](https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore)
 # Requirements
