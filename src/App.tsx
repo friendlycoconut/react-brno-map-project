@@ -76,11 +76,7 @@ const loginRoute = new Route({
 	component: Login
 });
 
-const githubLoginRoute = new Route({
-  getParentRoute: () => rootRoute,
-  path: '/githubLogin',
-  component: 
-});
+
 
 
 const routeTree = rootRoute.addChildren([
