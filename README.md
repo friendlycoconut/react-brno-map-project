@@ -1,5 +1,5 @@
 # PV247 Modern Development of User Interfaces
-[![Java CI with Maven](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml)
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)(https://github.com/NikitaVolotovich/super_bech32m/actions/workflows/maven.yml)
 # Project: React-Brno-tourist-app
 # [Data source link](https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore)
 # Requirements
