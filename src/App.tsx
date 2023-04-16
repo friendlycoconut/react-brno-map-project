@@ -14,22 +14,26 @@ import {
 	Router,
 	Route
 } from '@tanstack/react-router';
-
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
+import home from './routes/Home';
 import { useLogin } from './hooks/useLogin';
 
-
+import "leaflet/dist/leaflet.css";
 import theme from './theme/theme';
 import useLoggedInUser from './hooks/useLoggedUser';
 import { signOut } from './firebase/firebase-new';
+import FavoritesMap from './components/map-component';
 
 const rootRoute = new RootRoute({
 	component: () => {
 		const user = useLoggedInUser();
 
 		return (
+			
 			<ThemeProvider theme={theme}>
+			
 				<CssBaseline />
 
 				<AppBar>
@@ -48,7 +52,7 @@ const rootRoute = new RootRoute({
 				</AppBar>
 
 				<Container
-					maxWidth="sm"
+					
 					component="main"
 					sx={{
 						display: 'flex',
@@ -56,11 +60,18 @@ const rootRoute = new RootRoute({
 						justifyContent: 'center',
 						alignItems: 'center',
 						flexGrow: 1,
-						gap: 2
+						gap: 2,
+						margin: '50px'
 					}}
 				>
-					<Outlet />
+				 
+				 <h1>Top interesting locations in Brno</h1>
+	  <Outlet />
+      <FavoritesMap />
 				</Container>
+				<div className="App">
+  
+    </div>
 			</ThemeProvider>
 		);
 	}
@@ -76,11 +87,15 @@ const loginRoute = new Route({
 	component: Login
 });
 
-
+const indexRoute = new Route({
+	getParentRoute: () => rootRoute,
+	path: '/',
+	component: home
+});
 
 
 const routeTree = rootRoute.addChildren([
-
+  indexRoute,
 	loginRoute
 ]);
 

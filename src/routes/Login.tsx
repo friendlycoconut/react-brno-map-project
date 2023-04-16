@@ -24,19 +24,7 @@ const Login = () => {
 	return (
 		<Paper
 			component="form"
-			onSubmit={async (e: FormEvent) => {
-				e.preventDefault();
-				try {
-					isSignUp
-						? await signUp(email.value, password.value)
-						: await signIn(email.value, password.value);
-					navigate({ to: '/' });
-				} catch (err) {
-					setSubmitError(
-						(err as { message?: string })?.message ?? 'Unknown error occurred'
-					);
-				}
-			}}
+			onSubmit={async (e: FormEvent) => () => navigate(`/`)}
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',
@@ -48,8 +36,7 @@ const Login = () => {
 			<Typography variant="h4" component="h2" textAlign="center" mb={3}>
 				Sign in
 			</Typography>
-			<TextField label="Email" {...email.props} type="email" />
-			<TextField label="Password" {...password.props} type="password" />
+
 			<Box
 				sx={{
 					display: 'flex',
@@ -59,30 +46,8 @@ const Login = () => {
 					mt: 2
 				}}
 			>
-				{submitError && (
-					<Typography
-						variant="caption"
-						textAlign="right"
-						sx={{ color: 'error.main' }}
-					>
-						{submitError}
-					</Typography>
-				)}
-				<Button
-					type="submit"
-					variant="outlined"
-					onClick={() => setSignUp(true)}
-				>
-					SignUp
-				</Button>
-				<Button
-					type="submit"
-					variant="contained"
-					onClick={() => setSignUp(false)}
-				>
-					SignIn
-				</Button>
-				<Button className="btn" onClick={login}>
+				
+				<Button className="btn" onClick={login} type="submit">
         {isPending ? "Loading..." : "Login With Github"}
     </Button>
 			</Box>

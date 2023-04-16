@@ -57,6 +57,18 @@ export type Review = {
 	description?: string;
 };
 
+// Map place collection
+export type MapPlace = {
+	geometry: {coordinates: [];
+				type:"Point";};
+	id:string;			
+}
+
+export type GeometryMapPlace = {
+	coordinates: [];
+				type:"Point";
+}
+
 export const reviewsCollection = collection(
 	db,
 	'reviews'
