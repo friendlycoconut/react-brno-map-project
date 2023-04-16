@@ -81,7 +81,7 @@ export const FavoritesMap: FC = () =>  {
           park.geometry?.coordinates[0] 
         ]}
        
-      />
+      ><Popup>{park.properties.name}</Popup></Marker>
     ))}
 
     <Marker position={[49.1951, 16.6068]}>
