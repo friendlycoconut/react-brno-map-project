@@ -87,3 +87,22 @@ button:focus-visible {
       background: #5e2121;
   }
 }
+
+
+.learn-more-btn {
+   margin-top: 1em;
+   color: white;
+   background-color: #d4282c;
+}
+
+
+
+.learn-more-btn:hover {
+  margin-top: 1em;
+  color: #d4282c;
+  background-color: white;
+  border-color: #d4282c;
+  border-style: solid;
+  border-radius: 10;
+}
+

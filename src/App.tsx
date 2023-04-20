@@ -78,9 +78,6 @@ const rootRoute = new RootRoute({
 });
 
 
-
-
-
 const loginRoute = new Route({
 	getParentRoute: () => rootRoute,
 	path: '/login',

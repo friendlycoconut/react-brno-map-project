@@ -6,6 +6,7 @@ import { GeometryMapPlace, MapPlace, Review, reviewsCollection } from "../fireba
 import useLoggedInUser from "../hooks/useLoggedUser";
 import { onSnapshot } from "firebase/firestore";
 import axios, { AxiosResponse } from 'axios';
+import { Link } from "react-router-dom";
 
 
 export const FavoritesMap: FC = () =>  {
@@ -81,6 +82,9 @@ export const FavoritesMap: FC = () =>  {
         <div>
             <h2>{park.properties.name}</h2>
             <img src={park.properties.image} width="300px" height="200px"></img>
+            <Link to={park.properties.url}>
+               <button className="learn-more-btn">Learn More</button>
+            </Link>
         </div> </Popup></Marker>
     ))}
 
