@@ -8,7 +8,6 @@ export const useLogin = () => {
   const provider = new GithubAuthProvider();
 
   const login = async () => {
-    setError(null);
     setIsPending(true);
 
     try {
@@ -22,7 +21,7 @@ export const useLogin = () => {
       setIsPending(false)
     } catch (error) {
       console.log(error);
-      setError(error);
+      setError(true);
       setIsPending(false);
     }
   };

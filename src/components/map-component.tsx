@@ -57,11 +57,7 @@ export const FavoritesMap: FC = () =>  {
 	}, []);
 
 
-
-
-
   return (
-   
     <MapContainer
     center={[49.1951, 16.6068]}
     zoom={13}
@@ -81,7 +77,11 @@ export const FavoritesMap: FC = () =>  {
           park.geometry?.coordinates[0] 
         ]}
        
-      ><Popup>{park.properties.name}</Popup></Marker>
+      ><Popup>
+        <div>
+            <h2>{park.properties.name}</h2>
+            <img src={park.properties.image} width="300px" height="200px"></img>
+        </div> </Popup></Marker>
     ))}
 
     <Marker position={[49.1951, 16.6068]}>
