@@ -18,6 +18,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
 import home from './routes/Home';
+import Favorites from './routes/Favorites';
 import { useLogin } from './hooks/useLogin';
 
 import "leaflet/dist/leaflet.css";
@@ -45,7 +46,7 @@ const rootRoute = new RootRoute({
 							{!user ? (
 								<ButtonLink to="/login">Login</ButtonLink>
 							) : (
-								<Button onClick={signOut}>Logout</Button>
+								<><Button onClick={signOut}>Logout</Button><ButtonLink to="/favorites">Saved Places</ButtonLink></>
 							)}
 						</Toolbar>
 					</Container>
@@ -91,9 +92,18 @@ const indexRoute = new Route({
 });
 
 
+const favoritesRoute = new Route({
+	getParentRoute: () => rootRoute,
+	path: '/favorites',
+	component: Favorites
+});
+
+
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
-	loginRoute
+  loginRoute,
+  favoritesRoute
 ]);
 
 const router = new Router({ routeTree });
