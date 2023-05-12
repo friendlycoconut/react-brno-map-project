@@ -18,6 +18,7 @@ const Home = () => {
 					Welcome, {user.email}!
 				</Typography>
 			)}
+			
 			{/* TODO: Add 3 latest matches */}
 			{/* TODO: Add 3 latest reviews */}
 		</>

@@ -17,7 +17,7 @@ import {
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
-import home from './routes/Home';
+import Home from './routes/Home';
 import Favorites from './routes/Favorites';
 import { useLogin } from './hooks/useLogin';
 
@@ -51,7 +51,6 @@ const rootRoute = new RootRoute({
 						</Toolbar>
 					</Container>
 				</AppBar>
-
 				<Container
 					
 					component="main"
@@ -65,7 +64,6 @@ const rootRoute = new RootRoute({
 						margin: '50px'
 					}}
 				>
-				 
 				 <h1>Top interesting locations in Brno</h1>
 	  <Outlet />
       <FavoritesMap />
@@ -88,7 +86,7 @@ const loginRoute = new Route({
 const indexRoute = new Route({
 	getParentRoute: () => rootRoute,
 	path: '/',
-	component: home
+	component: Home
 });
 
 
