@@ -1,4 +1,13 @@
-import { Box, Typography } from '@mui/material';
+import {
+	AppBar,
+	Container,
+	Toolbar,
+	Button,
+	Box,
+	ThemeProvider,
+	CssBaseline,
+	Typography
+} from '@mui/material';
 import GridOnIcon from '@mui/icons-material/GridOn';
 import 'leaflet/dist/leaflet.css'
 import ButtonLink from '../components/ButtonLink';
@@ -10,18 +19,23 @@ const Home = () => {
 	usePageTitle('Home');
 	const user = useLoggedInUser();
 	return (
-		<>
+		<Container
+					maxWidth="sm"
 			
-			
-			{user?.email && (
-				<Typography variant="h4" textAlign="center">
-					Welcome, {user.email}!
-				</Typography>
-			)}
-			
-			{/* TODO: Add 3 latest matches */}
-			{/* TODO: Add 3 latest reviews */}
-		</>
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						justifyContent: 'center',
+						alignItems: 'center',
+						flexGrow: 1,
+						gap: 2,
+						margin: '50px'
+					}}
+				>
+				 <h1>Top interesting locations in Brno</h1>
+
+      <FavoritesMap />
+				</Container>
 	);
 };
 

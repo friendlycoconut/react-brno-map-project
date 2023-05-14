@@ -2,7 +2,7 @@ import L, { LatLngExpression } from "leaflet";
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import React, { FC, useEffect, useState } from "react";
-import { GeometryMapPlace, MapPlace, Review, reviewsCollection } from "../firebase/firebase-new";
+import { GeometryMapPlace, MapPlace, Place, Review, placeDBCollection, reviewsCollection } from "../firebase/firebase-new";
 import useLoggedInUser from "../hooks/useLoggedUser";
 import { onSnapshot } from "firebase/firestore";
 import axios, { AxiosResponse } from 'axios';
@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 
 export const FavoritesMap: FC = () =>  {
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [places, setPlaces] = useState<Place[]>([]);
+
   const position: LatLngExpression = [59.91174337077401, 10.750425582038146];
   const zoom: number = 15;
   const [mapPoints, setMapPoints] = useState<[]>()
@@ -45,9 +47,10 @@ export const FavoritesMap: FC = () =>  {
     console.log(mapPoints);
 
 
-		const unsubscribe = onSnapshot(reviewsCollection, snapshot => {
+		const unsubscribe = onSnapshot(placeDBCollection, snapshot => {
 			// Access .docs property of snapshot
-			setReviews(snapshot.docs.map(doc => doc.data()));
+			setPlaces(snapshot.docs.map(doc => doc.data()));
+      console.log(places)
   
       
 		});
@@ -65,6 +68,7 @@ export const FavoritesMap: FC = () =>  {
     scrollWheelZoom={true}
     style={{ width: "100%", height: "calc(100vh - 15rem)" }}
   >
+    
      
     <TileLayer
       url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -88,16 +92,7 @@ export const FavoritesMap: FC = () =>  {
         </div> </Popup></Marker>
     ))}
 
-    <Marker position={[49.1951, 16.6068]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-    <Marker position={[49.1951, 16.6058]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
+    
 </MapContainer>
   );
 }

@@ -11,11 +11,9 @@ const Login = () => {
 	usePageTitle('Login');
 
 	const navigate = useNavigate();
-	const { login, isPending } = useLogin();
-
 
 	const [isSignUp, setSignUp] = useState(false);
-
+	const { login, isPending } = useLogin();
 	const email = useField('email', true);
 	const password = useField('password', true);
 
@@ -24,7 +22,7 @@ const Login = () => {
 	return (
 		<Paper
 			component="form"
-			onSubmit={async (e: FormEvent) => () => navigate(`/`)}
+			onSubmit={async (e: FormEvent) => () => navigate("/")}
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',
@@ -46,8 +44,23 @@ const Login = () => {
 					mt: 2
 				}}
 			>
+				{submitError && (
+					<Typography
+						variant="caption"
+						textAlign="right"
+						sx={{ color: 'error.main' }}
+					>
+						{submitError}
+					</Typography>
+				)}
 				
-				<Button className="btn" onClick={login} type="submit">
+			
+				<Button className="btn" onClick={() => {
+                  login();
+				  navigate('/');
+				
+                }} >
+					
         {isPending ? "Loading..." : "Login With Github"}
     </Button>
 			</Box>

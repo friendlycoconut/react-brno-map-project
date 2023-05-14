@@ -17,7 +17,7 @@ import {
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
-import Home from './routes/Home';
+import Home from './routes/home';
 import Favorites from './routes/Favorites';
 import { useLogin } from './hooks/useLogin';
 
@@ -34,43 +34,32 @@ const rootRoute = new RootRoute({
 		return (
 			
 			<ThemeProvider theme={theme}>
-			
 				<CssBaseline />
 
 				<AppBar>
-					<Container maxWidth="sm">
+					
 						<Toolbar disableGutters sx={{ gap: 2 }}>
 							<ButtonLink to="/">Home</ButtonLink>
-				
+
+							<Box sx={{ flexGrow: 1 }} />
+
+							{!user ? null : (
+								<ButtonLink to="/favorites">Favourites</ButtonLink>
+							)}
+						
 							<Box sx={{ flexGrow: 1 }} />
 							{!user ? (
 								<ButtonLink to="/login">Login</ButtonLink>
 							) : (
-								<><Button onClick={signOut}>Logout</Button><ButtonLink to="/favorites">Saved Places</ButtonLink></>
+								<Button onClick={signOut}>Logout</Button>
 							)}
 						</Toolbar>
+						<Container maxWidth="sm">
+							  <Outlet />
 					</Container>
 				</AppBar>
-				<Container
-					
-					component="main"
-					sx={{
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'center',
-						alignItems: 'center',
-						flexGrow: 1,
-						gap: 2,
-						margin: '50px'
-					}}
-				>
-				 <h1>Top interesting locations in Brno</h1>
-	  <Outlet />
-      <FavoritesMap />
-				</Container>
-				<div className="App">
-  
-    </div>
+
+				
 			</ThemeProvider>
 		);
 	}

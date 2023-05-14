@@ -48,7 +48,7 @@ export const onAuthChanged = (callback: (u: User | null) => void) =>
 	onAuthStateChanged(auth, callback);
 
 // Firestore
-const db = getFirestore();
+export const db = getFirestore();
 
 // Reviews collection
 export type Review = {
@@ -56,6 +56,16 @@ export type Review = {
 	stars: number;
 	description?: string;
 };
+
+export type Place = {
+	name: string; 
+	stars: number;
+	url_image: string;
+	url_desc: string;
+	user_email: string;
+}
+
+
 
 // Map place collection
 export type MapPlace = {
@@ -77,11 +87,12 @@ export const reviewsCollection = collection(
 export const reviewsDocument = (id: string) =>
 	doc(db, 'reviews', id) as DocumentReference<Review>;
 
-// Matches collection
-export type Match = {
-	by: string;
-	date: Timestamp;
-};
+export const placeDBCollection = collection(
+		db,
+		'place'
+	) as CollectionReference<Place>;
+	
+	export const placeDBDocument = (id: string) =>
+		doc(db, 'place', id) as DocumentReference<Place>;
 
-// TODO: Add matches collection
 export {auth}
