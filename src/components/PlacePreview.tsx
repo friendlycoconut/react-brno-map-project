@@ -1,5 +1,5 @@
 import { Star, StarBorder } from '@mui/icons-material';
-import { Box, Card, CardContent, IconButton, Typography } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Link, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { FC } from 'react';
 import { collection, deleteDoc, doc } from 'firebase/firestore';
@@ -26,41 +26,33 @@ const ReviewPreview: FC<Place> = ({ name, stars, url_image, url_desc, user_email
 	};
 
 	const canDelete = user?.email === user_email;
-
 	return (
 		<Card
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'space-between',
-				width: '100%',
-				textAlign: 'left'
-			}}
+		  sx={{
+			position: 'relative',
+			width: '100%',
+			height: '70%',
+			padding: '1em',
+			border: 'solid #D3D3D3 2px',
+		  }}
 		>
-			<CardContent>
-				<Typography variant="h5" color="textSecondary">
-					{user_email}
-				</Typography>
-				<Box mb={2}>
-					{[...Array(5).keys()].map(i =>
-						i < stars ? (
-							<Star key={i} color="primary" />
-						) : (
-							<StarBorder key={i} color="primary" />
-						)
-					)}
-				</Box>
-				{name && <Typography>{name}</Typography>}
-			</CardContent>
-			{canDelete && (
-				<Box p={2} display="flex" justifyContent="flex-end">
-					<IconButton color="primary" onClick={handleDelete}>
-						<DeleteIcon />
-					</IconButton>
-				</Box>
-			)}
+		<img
+			src={url_image}
+			width="100%"
+			height="100%"
+		/>
+		  <CardContent sx={{ padding: '16px' }}>
+			<div>
+			  <h2>{name}</h2>
+			  <div style={{ position: 'absolute', bottom: 0, right: 0 }}>
+				<Link to={url_desc}>
+				  <button className="learn-more-btn">Learn More</button>
+				</Link>
+			  </div>
+			</div>
+		  </CardContent>
 		</Card>
-	);
+	  );
+		
 };
-
 export default ReviewPreview;
