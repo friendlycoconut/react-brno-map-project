@@ -64,7 +64,7 @@ export const FavoritesMap: FC = () =>  {
   return (
     <MapContainer
     center={[49.1951, 16.6068]}
-    zoom={13}
+    zoom={10}
     scrollWheelZoom={true}
     style={{ width: "100%", height: "calc(100vh - 15rem)" }}
   >

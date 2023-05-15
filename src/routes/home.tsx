@@ -32,7 +32,7 @@ const Home = () => {
 						margin: '50px'
 					}}
 				>
-				 <h1>Top interesting locations in Brno</h1>
+				 <h1>Top Interesting Locations in Brno</h1>
 
       <FavoritesMap />
 				</Container>
