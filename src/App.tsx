@@ -17,7 +17,7 @@ import {
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
-import Home from './routes/home';
+import Home from './routes/Home';
 import Favorites from './routes/Favorites';
 import { useLogin } from './hooks/useLogin';
 
