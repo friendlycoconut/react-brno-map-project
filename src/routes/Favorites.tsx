@@ -1,13 +1,16 @@
 import { Typography } from "@mui/material";
 import useLoggedInUser from "../hooks/useLoggedUser";
 import usePageTitle from "../hooks/usePageTitle";
-import { useEffect, useState } from "react";
-import { Place, placeDBCollection } from "../firebase/firebase-new";
+import { useContext, useEffect, useState } from "react";
+import { Place, placeDBCollection } from "../firebase/firebase";
 import { onSnapshot } from "firebase/firestore";
 import PlacePreview from "../components/PlacePreview";
+import { AuthContext } from "../context/auth-context";
 
 const Favorites = () => {
 	usePageTitle('Saved Places');
+	const { currentUser, signOut } = useContext(AuthContext);
+  
 	const [places, setPlaces] = useState<Place[]>([]);
 	const user = useLoggedInUser();
 

@@ -13,7 +13,7 @@ import 'leaflet/dist/leaflet.css'
 import ButtonLink from '../components/ButtonLink';
 import usePageTitle from '../hooks/usePageTitle';
 import useLoggedInUser from '../hooks/useLoggedUser';
-import FavoritesMap from '../components/map-component';
+import FavoritesMap from '../components/MapComponent';
 
 const Home = () => {
 	usePageTitle('Home');

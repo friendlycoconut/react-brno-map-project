@@ -17,15 +17,15 @@ import {
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import ButtonLink from './components/ButtonLink';
 import Login from './routes/Login';
-import Home from './routes/Home';
+import Home from './routes/home';
 import Favorites from './routes/Favorites';
 import { useLogin } from './hooks/useLogin';
 
 import "leaflet/dist/leaflet.css";
 import theme from './theme/theme';
 import useLoggedInUser from './hooks/useLoggedUser';
-import { signOut } from './firebase/firebase-new';
-import FavoritesMap from './components/map-component';
+import { signOut } from './firebase/firebase';
+import FavoritesMap from './components/MapComponent';
 
 const rootRoute = new RootRoute({
 	component: () => {
@@ -34,19 +34,18 @@ const rootRoute = new RootRoute({
 		return (
 			
 			<ThemeProvider theme={theme}>
-				<CssBaseline />
+			<CssBaseline />
 
-				<AppBar>
-					
-						<Toolbar disableGutters sx={{ gap: 2 }}>
-							<ButtonLink to="/">Home</ButtonLink>
+			<AppBar>
+				<Container maxWidth="sm">
+					<Toolbar disableGutters sx={{ gap: 2 }}>
+						<ButtonLink to="/">Home</ButtonLink>
 
 							<Box sx={{ flexGrow: 1 }} />
 
 							{!user ? null : (
-								<ButtonLink to="/favorites">Favourites</ButtonLink>
+								<ButtonLink to="/favourites">Favourites</ButtonLink>
 							)}
-						
 							<Box sx={{ flexGrow: 1 }} />
 							{!user ? (
 								<ButtonLink to="/login">Login</ButtonLink>
@@ -54,13 +53,24 @@ const rootRoute = new RootRoute({
 								<Button onClick={signOut}>Logout</Button>
 							)}
 						</Toolbar>
-						<Container maxWidth="sm">
-							  <Outlet />
-					</Container>
-				</AppBar>
+				</Container>
+			</AppBar>
 
-				
-			</ThemeProvider>
+			<Container
+				maxWidth="sm"
+				component="main"
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+					flexGrow: 1,
+					gap: 2
+				}}
+			>
+				<Outlet />
+			</Container>
+		</ThemeProvider>
 		);
 	}
 });
@@ -81,11 +91,9 @@ const indexRoute = new Route({
 
 const favoritesRoute = new Route({
 	getParentRoute: () => rootRoute,
-	path: '/favorites',
+	path: '/favourites',
 	component: Favorites
 });
-
-
 
 const routeTree = rootRoute.addChildren([
   indexRoute,

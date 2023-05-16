@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { User } from 'firebase/auth';
 
-import { onAuthChanged } from '../firebase/firebase-new';
+import { onAuthChanged } from '../firebase/firebase';
 
 // Hook providing logged in user information
 const useLoggedInUser = () => {

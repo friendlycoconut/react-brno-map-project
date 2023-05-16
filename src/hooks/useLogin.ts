@@ -1,5 +1,5 @@
 import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebase/firebase-new";
+import { auth } from "../firebase/firebase";
 import { useState } from "react";
 
 export const useLogin = () => {
