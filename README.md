@@ -14,9 +14,9 @@ AS additional (optional) functionality may be added filtration by the region (ar
 # Requirements
 * **Team:** Illia Kostenko, Jonna Määttä
 * **Language:** Typescript.
-* [] All features implemented
-* [] Git collaboration (each student must have a contribution in the codebase)
-* [] Responsive design
+* [x] All features implemented
+* [x] Git collaboration (each student must have a contribution in the codebase)
+* [x] Responsive design
 * [x] User authentication (Firebase Auth, Github/Google/Facebook login etc.)
-* [] Working with BE storage (Firebase Firestore, Google Drive, Github gists etc.)
+* [x] Working with BE storage (Firebase Firestore, Google Drive, Github gists etc.)
 * [] Built project hosted online (Firebase, Heroku, gh-pages etc.)
