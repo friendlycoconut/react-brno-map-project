@@ -7,7 +7,7 @@
 
 # [Deploy URL](https://react-brno-map-project.vercel.app/)
 It was decided, that the dataset from the data.Brno portal can be used, to create a new application, for the tourist purposes.
-As the dataset is going to be used: https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore.
+As the dataset is going to be used:[ https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore](https://data.brno.cz/datasets/places/explore).
 Login will be performed with help of Github firebase provider.
 Main functionality will be described with the map. Dots on the map will describe the tourist places on the map. By clicking on the dot, will be opened a new dialog window, on which will be presented the image of the place and main details.
 Each logged in user may save the ref to the place by adding it to the saved ones list.
