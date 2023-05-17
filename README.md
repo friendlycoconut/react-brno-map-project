@@ -2,6 +2,10 @@
 ![npm_version](https://img.shields.io/badge/npm-9.5.0-blue)
 ![firebase_version](https://img.shields.io/badge/firebase-9.19.1-orange)
 
+![image](https://github.com/friendlycoconut/react-brno-map-project/assets/43630075/1280ee3b-ab8d-447f-95c5-bf40d5e3ae6b)
+
+
+
 # Project: React-Brno-tourist-app
 # [Data source link](https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore)
 
