@@ -4,6 +4,8 @@
 
 # Project: React-Brno-tourist-app
 # [Data source link](https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore)
+
+# [Deploy URL](https://react-brno-map-project.vercel.app/)
 It was decided, that the dataset from the data.Brno portal can be used, to create a new application, for the tourist purposes.
 As the dataset is going to be used: https://data.brno.cz/datasets/turistick%C3%A1-m%C3%ADsta-tourist-places/explore.
 Login will be performed with help of Github firebase provider.
@@ -19,4 +21,4 @@ AS additional (optional) functionality may be added filtration by the region (ar
 * [x] Responsive design
 * [x] User authentication (Firebase Auth, Github/Google/Facebook login etc.)
 * [x] Working with BE storage (Firebase Firestore, Google Drive, Github gists etc.)
-* [] Built project hosted online (Firebase, Heroku, gh-pages etc.)
+* [x] Built project hosted online (Firebase, Heroku, gh-pages etc.)
