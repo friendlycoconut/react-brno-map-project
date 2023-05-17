@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { Star, StarBorder } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
 import { setDoc, doc, FieldValue } from 'firebase/firestore';
+import MarkerClusterGroup from "react-leaflet-markercluster";
 
 import { useNavigate } from 'react-router-dom';
 import { iconPerson } from "./Icon";
@@ -124,7 +125,7 @@ export const FavoritesMap: FC = () =>  {
     style={{ width: "100%", height: "calc(100vh - 15rem)" }}
   >
     
-     
+      <MarkerClusterGroup>
     <TileLayer
       url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -170,7 +171,9 @@ export const FavoritesMap: FC = () =>  {
 					</Box>)}
            
         </div> </Popup></Marker>
+	      
     ))}
+	       </MarkerClusterGroup>
 
     
 </MapContainer>
