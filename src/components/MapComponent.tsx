@@ -125,11 +125,12 @@ export const FavoritesMap: FC = () =>  {
     style={{ width: "100%", height: "calc(100vh - 15rem)" }}
   >
     
-      <MarkerClusterGroup>
     <TileLayer
       url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    /> {mapPoints?.map((park:any) => (
+    /> 
+      <MarkerClusterGroup>
+	      {mapPoints?.map((park:any) => (
    
       <Marker
         key={park.id}
