@@ -12,6 +12,7 @@ import { Box, IconButton } from "@mui/material";
 import { setDoc, doc, FieldValue } from 'firebase/firestore';
 
 import { useNavigate } from 'react-router-dom';
+import { iconPerson } from "./Icon";
   
 export const FavoritesMap: FC = () =>  {
   const [places, setPlaces] = useState<Place[]>([]);
@@ -135,6 +136,8 @@ export const FavoritesMap: FC = () =>  {
           park.geometry?.coordinates[1] ,
           park.geometry?.coordinates[0] 
         ]}
+        icon={ iconPerson }
+        
        
       ><Popup>
         <div>
@@ -156,9 +159,11 @@ export const FavoritesMap: FC = () =>  {
                   handleSubmit(i,park.properties.name, park.properties.image,
                     park.properties.url);
                   
+
                   }
                   }
 							>
+                
 								{i < getStars(park.properties.name) ? <Star /> : <StarBorder />}
 							</IconButton>
 						))}
@@ -172,9 +177,6 @@ export const FavoritesMap: FC = () =>  {
   );
 }
 
-function delay(ms: number) {
-  return new Promise( resolve => setTimeout(resolve, ms) );
-}
 
 export default FavoritesMap;
 
