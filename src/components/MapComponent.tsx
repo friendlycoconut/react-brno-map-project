@@ -141,7 +141,7 @@ export const FavoritesMap: FC = () =>  {
        
       ><Popup>
         <div>
-            <h2>{park.properties.name.replace(/&#8211;/gi, "-")}</h2>
+            <h2>{park.properties.name.replace(/&#8211;/gi, "-").replace(/&nbsp;/gi, " ")}</h2>
             <img src={park.properties.image} width="300px" height="200px"></img>
             <Link to={park.properties.url}>
                <button className="learn-more-btn">Learn More</button>
