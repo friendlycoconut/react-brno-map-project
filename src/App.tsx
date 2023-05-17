@@ -69,6 +69,7 @@ const rootRoute = new RootRoute({
 				}}
 			>
 				<Outlet />
+				
 			</Container>
 		</ThemeProvider>
 		);

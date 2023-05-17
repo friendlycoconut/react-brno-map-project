@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Star, StarBorder } from "@mui/icons-material";
 import { Box, IconButton } from "@mui/material";
 import { setDoc, doc, FieldValue } from 'firebase/firestore';
-import MarkerClusterGroup from "react-leaflet-markercluster";
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 import { useNavigate } from 'react-router-dom';
 import { iconPerson } from "./Icon";
@@ -119,19 +119,20 @@ export const FavoritesMap: FC = () =>  {
 
   return (
     <MapContainer
-    center={[49.1951, 16.6068]}
-    zoom={10}
-    scrollWheelZoom={true}
-    style={{ width: "100%", height: "calc(100vh - 15rem)" }}
+    className="markercluster-map"
+    center={[51.0, 19.0]}
+    zoom={4}
+    maxZoom={18}
   >
-    
     <TileLayer
-      url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     /> 
-      <MarkerClusterGroup>
+ <MarkerClusterGroup
+        chunkedLoading
+      >
 	      {mapPoints?.map((park:any) => (
-   
+  
       <Marker
         key={park.id}
         position={[
@@ -174,10 +175,8 @@ export const FavoritesMap: FC = () =>  {
         </div> </Popup></Marker>
 	      
     ))}
-	       </MarkerClusterGroup>
-
-    
-</MapContainer>
+	    </MarkerClusterGroup>
+  </MapContainer>
   );
 }
 
