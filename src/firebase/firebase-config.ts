@@ -1,6 +1,6 @@
 
   const config = {
-    apiKey: "AIzaSyBuffMe_kzeNOorjQNbAhj8q27cgTo0Z24",
+    apiKey: "YourAPIKey",
     authDomain: "react-brno-app.firebaseapp.com",
     projectId: "react-brno-app",
     storageBucket: "react-brno-app.appspot.com",
