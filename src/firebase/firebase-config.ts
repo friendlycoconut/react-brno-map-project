@@ -1,11 +1,11 @@
 
   const config = {
-    apiKey: "AIzaSyBuffMe_kzeNOorjQNbAhj8q27cgTo0Z24",
+    apiKey: "",
     authDomain: "react-brno-app.firebaseapp.com",
     projectId: "react-brno-app",
     storageBucket: "react-brno-app.appspot.com",
-    messagingSenderId: "665113238679",
-    appId: "1:665113238679:web:2a93bbadf62e2747305dd2"
+    messagingSenderId: "",
+    appId: ""
   };
 
   export function getFirebaseConfig() {
